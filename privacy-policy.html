@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Mora — Privacy Policy</title>
+  <style>
+    :root {
+      --bg: #FFFFFF;
+      --surface: #F7F8FA;
+      --border: #E5E7EB;
+      --text: #0E0F11;
+      --muted: #6B7280;
+      --accent: #0EA5E9;
+      --danger: #DC2626;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0E0F11;
+        --surface: #16181C;
+        --border: #26282D;
+        --text: #F3F4F6;
+        --muted: #9CA3AF;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans',
+        'Noto Sans SC', 'Noto Sans TC', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .header {
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 10;
+    }
+    .logo {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+    }
+    .lang-switcher { display: flex; gap: 6px; }
+    .lang-btn {
+      padding: 4px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 150ms ease-out, border-color 150ms ease-out, color 150ms ease-out;
+      font-family: inherit;
+    }
+    .lang-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .lang-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+    main { max-width: 700px; margin: 0 auto; padding: 48px 24px 80px; }
+    h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.4px; margin-bottom: 8px; line-height: 1.25; }
+    .meta { color: var(--muted); font-size: 14px; margin-bottom: 36px; }
+    h2 { font-size: 17px; font-weight: 600; letter-spacing: -0.1px; margin: 32px 0 10px; }
+    p { margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    ul { margin: 10px 0 14px 20px; }
+    li { margin-bottom: 5px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    strong { font-weight: 600; }
+    code {
+      font-family: 'SF Mono', 'Cascadia Code', monospace;
+      font-size: 0.85em;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 1px 5px;
+    }
+    .no-do {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin: 10px 0 14px;
+    }
+    .no-do ul { margin: 0; list-style: none; padding: 0; }
+    .no-do li { padding-left: 20px; position: relative; }
+    .no-do li::before {
+      content: "✕";
+      color: var(--danger);
+      font-size: 11px;
+      font-weight: 700;
+      position: absolute;
+      left: 0;
+      top: 5px;
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 28px 24px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 480px) {
+      main { padding: 32px 16px 60px; }
+      h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <span class="logo">Mora</span>
+    <nav class="lang-switcher" aria-label="Language">
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="zh">简体</button>
+      <button class="lang-btn" data-lang="zh-Hant">繁體</button>
+    </nav>
+  </header>
+  <main id="main"></main>
+  <footer id="footer"></footer>
+
+  <script>
+    const T = {
+      en: {
+        dir: 'ltr',
+        title: 'Privacy Policy',
+        updated: 'Last updated: June 23, 2026',
+        intro: '<p>Mora is a local media deduplication app. <strong>Mora operates entirely on your device and never transmits any personal data over the internet.</strong> Mora has no <code>INTERNET</code> permission and is technically incapable of making network connections.</p>',
+        h_proc: 'What Mora Processes Locally',
+        proc_pre: '<p>To find duplicate photos and videos, Mora:</p>',
+        proc_items: [
+          "Accesses media files in folders you select via Android's Storage Access Framework (SAF)",
+          "Computes perceptual fingerprints (hashes) of your media files entirely on-device",
+          "Stores fingerprints and file metadata (filename, size, date modified) in a local SQLite database on your device to improve scan performance"
+        ],
+        proc_post: '<p>None of this data ever leaves your device.</p>',
+        h_no: 'What Mora Does Not Do',
+        no_items: [
+          "Collect analytics or usage statistics",
+          "Send crash reports to remote servers",
+          "Display advertisements",
+          "Use third-party tracking or analytics SDKs",
+          "Access your location, contacts, microphone, or camera",
+          "Upload your photos or videos",
+          "Require or use an account or login"
+        ],
+        h_trash: 'Deletion & Trash',
+        trash: '<p>When you delete files using Mora, they are first moved to a local trash folder on your device. They are not permanently removed until you explicitly empty the trash. This gives you an opportunity to recover files before permanent deletion.</p>',
+        h_storage: 'Local Data Storage',
+        storage: '<p>All data generated by Mora (fingerprint cache, preferences) is stored solely in the app\'s private storage directory on your device. You can clear this data at any time via <strong>Android Settings → Apps → Mora → Storage → Clear Data</strong>.</p>',
+        h_rights: 'Your Rights (Singapore PDPA)',
+        rights: '<p>Mora is developed by an individual based in Singapore and operated in accordance with Singapore\'s Personal Data Protection Act 2012 (PDPA). Since Mora does not collect or transmit personal data off your device, the standard rights of access, correction, and deletion are exercised entirely through your device\'s own storage controls.</p><p>For privacy inquiries: <a href="mailto:kssolution1191@gmail.com">kssolution1191@gmail.com</a></p>',
+        h_changes: 'Changes to This Policy',
+        changes: '<p>If this policy is updated, the new version will be published at this URL and the "Last updated" date above will be revised. Continued use of the app after changes constitutes acceptance of the updated policy.</p>',
+        h_contact: 'Contact',
+        contact: '<p>Privacy inquiries: <a href="mailto:kssolution1191@gmail.com">kssolution1191@gmail.com</a></p>',
+        footer: '© 2026 Mora'
+      },
+
+      zh: {
+        dir: 'ltr',
+        title: '隐私政策',
+        updated: '最后更新：2026年6月23日',
+        intro: '<p>Mora 是一款本地媒体去重应用。<strong>Mora 完全在您的设备上运行，不会通过互联网传输任何个人数据。</strong>Mora 没有 <code>INTERNET</code> 权限，在技术上无法进行网络连接。</p>',
+        h_proc: 'Mora 在本地处理的内容',
+        proc_pre: '<p>为查找重复的照片和视频，Mora 会：</p>',
+        proc_items: [
+          "通过 Android 存储访问框架 (SAF) 访问您选择的文件夹中的媒体文件",
+          "完全在设备端计算媒体文件的感知指纹（哈希值）",
+          "将指纹和文件元数据（文件名、大小、修改日期）存储在设备本地的 SQLite 数据库中，以提升扫描性能"
+        ],
+        proc_post: '<p>以上所有数据均不会离开您的设备。</p>',
+        h_no: 'Mora 不做的事情',
+        no_items: [
+          "收集分析数据或使用统计信息",
+          "向远程服务器发送崩溃报告",
+          "展示广告",
+          "使用第三方追踪或分析 SDK",
+          "访问您的位置、联系人、麦克风或摄像头",
+          "上传您的照片或视频",
+          "需要或使用账户或登录"
+        ],
+        h_trash: '删除与回收站',
+        trash: '<p>当您使用 Mora 删除文件时，文件会首先移至设备本地的回收站文件夹，不会立即永久删除，直到您手动清空回收站。这为您提供了在永久删除前恢复文件的机会。</p>',
+        h_storage: '本地数据存储',
+        storage: '<p>Mora 生成的所有数据（指纹缓存、偏好设置）仅存储在设备上应用的私有存储目录中。您可以随时通过<strong>「Android 设置 → 应用 → Mora → 存储 → 清除数据」</strong>清除这些数据。</p>',
+        h_rights: '您的权利（新加坡 PDPA）',
+        rights: '<p>Mora 由位于新加坡的个人开发，并依据新加坡《2012年个人数据保护法》(PDPA) 运营。由于 Mora 不会在您的设备之外收集或传输个人数据，访问、更正和删除等标准权利完全通过您设备自身的存储控制来行使。</p><p>隐私咨询：<a href="mailto:kssolution1191@gmail.com">kssolution1191@gmail.com</a></p>',
+        h_changes: '本政策的变更',
+        changes: '<p>如本政策更新，新版本将发布于本网址，"最后更新"日期也将相应修订。继续使用本应用即表示接受更新后的政策。</p>',
+        h_contact: '联系方式',
+        contact: '<p>隐私咨询：<a href="mailto:kssolution1191@gmail.com">kssolution1191@gmail.com</a></p>',
+        footer: '© 2026 Mora'
+      },
+
+      'zh-Hant': {
+        dir: 'ltr',
+        title: '隱私政策',
+        updated: '最後更新：2026年6月23日',
+        intro: '<p>Mora 是一款本地媒體去重應用程式。<strong>Mora 完全在您的裝置上運行，不會透過網際網路傳輸任何個人資料。</strong>Mora 沒有 <code>INTERNET</code> 權限，在技術上無法進行網路連線。</p>',
+        h_proc: 'Mora 在本地處理的內容',
+        proc_pre: '<p>為尋找重複的照片和影片，Mora 會：</p>',
+        proc_items: [
+          "透過 Android 儲存存取框架 (SAF) 存取您選擇的資料夾中的媒體檔案",
+          "完全在裝置端計算媒體檔案的感知指紋（雜湊值）",
+          "將指紋和檔案元資料（檔案名稱、大小、修改日期）儲存在裝置本地的 SQLite 資料庫中，以提升掃描效能"
+        ],
+        proc_post: '<p>以上所有資料均不會離開您的裝置。</p>',
+        h_no: 'Mora 不做的事情',
+        no_items: [
+          "收集分析資料或使用統計資訊",
+          "向遠端伺服器傳送當機報告",
+          "顯示廣告",
+          "使用第三方追蹤或分析 SDK",
+          "存取您的位置、聯絡人、麥克風或相機",
+          "上傳您的照片或影片",
+          "需要或使用帳戶或登入"
+        ],
+        h_trash: '刪除與資源回收桶',
+        trash: '<p>當您使用 Mora 刪除檔案時，檔案會先移至裝置本地的資源回收桶資料夾，不會立即永久刪除，直到您手動清空資源回收桶。這讓您有機會在永久刪除前還原檔案。</p>',
+        h_storage: '本地資料儲存',
+        storage: '<p>Mora 產生的所有資料（指紋快取、偏好設定）僅儲存在裝置上應用程式的私有儲存目錄中。您可以隨時透過<strong>「Android 設定 → 應用程式 → Mora → 儲存空間 → 清除資料」</strong>清除這些資料。</p>',
+        h_rights: '您的權利（新加坡 PDPA）',
+        rights: '<p>Mora 由位於新加坡的個人開發，並依據新加坡《2012年個人資料保護法》(PDPA) 運營。由於 Mora 不會在您的裝置之外收集或傳輸個人資料，存取、更正和刪除等標準權利完全透過您裝置自身的儲存控制來行使。</p><p>隱私查詢：<a href="mailto:kssolution1191@gmail.com">kssolution1191@gmail.com</a></p>',
+        h_changes: '本政策的變更',
+        changes: '<p>如本政策更新，新版本將發布於本網址，「最後更新」日期也將相應修訂。繼續使用本應用程式即表示接受更新後的政策。</p>',
+        h_contact: '聯絡方式',
+        contact: '<p>隱私查詢：<a href="mailto:kssolution1191@gmail.com">kssolution1191@gmail.com</a></p>',
+        footer: '© 2026 Mora'
+      }
+    };
+
+    function itemsHTML(items) {
+      return '<ul>' + items.map(i => `<li>${i}</li>`).join('') + '</ul>';
+    }
+
+    function render(key) {
+      const t = T[key];
+      if (!t) return;
+      document.documentElement.lang = key;
+      document.documentElement.dir = t.dir;
+      document.title = `Mora — ${t.title}`;
+      document.getElementById('main').innerHTML = `
+        <h1>${t.title}</h1>
+        <p class="meta">${t.updated}</p>
+        ${t.intro}
+        <h2>${t.h_proc}</h2>
+        ${t.proc_pre}
+        ${itemsHTML(t.proc_items)}
+        ${t.proc_post}
+        <h2>${t.h_no}</h2>
+        <div class="no-do">${itemsHTML(t.no_items)}</div>
+        <h2>${t.h_trash}</h2>
+        ${t.trash}
+        <h2>${t.h_storage}</h2>
+        ${t.storage}
+        <h2>${t.h_rights}</h2>
+        ${t.rights}
+        <h2>${t.h_changes}</h2>
+        ${t.changes}
+        <h2>${t.h_contact}</h2>
+        ${t.contact}
+      `;
+      document.getElementById('footer').textContent = t.footer;
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === key);
+      });
+      try { localStorage.setItem('mora-pp-lang', key); } catch (_) {}
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => render(btn.dataset.lang));
+    });
+
+    function detectLang() {
+      try {
+        const saved = localStorage.getItem('mora-pp-lang');
+        if (saved && T[saved]) return saved;
+      } catch (_) {}
+      const nav = (navigator.languages || [navigator.language]).map(l => l.toLowerCase());
+      for (const l of nav) {
+        if (l.startsWith('zh-hant') || l.startsWith('zh-tw') || l.startsWith('zh-hk')) return 'zh-Hant';
+        if (l.startsWith('zh')) return 'zh';
+      }
+      return 'en';
+    }
+
+    render(detectLang());
+  </script>
+</body>
+</html>
